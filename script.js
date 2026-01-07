@@ -7,24 +7,41 @@ const miniplushButton = document.querySelector("#plush");
 const comicbookButton = document.querySelector("#comic");
 const mysteryboxButton = document.querySelector("#mystery");
 
-const shoppingCart = document.querySelector("#shopping-cart");
-const totalSpan = document.querySelector("#total-Span");
+const shoppingCart = document.getElementById('shopping-cart');
+const totalSpan = document.getElementById('total-span');
 
-const updateTotal = () => {
-    totalSpan.textContent = totalInCent/100;
+const UpdateDisplayTotal = () => {
+    totalSpan.textContent = total/100;
+    
 }
 const addSticker = () => {
     shoppingCart.innerHTML +=
-    totalInCent += 50;
-    updateTotal();
+    total += 50;
+    UpdateDisplayTotal();
 }
 const addKeychain = () => {
     shoppingCart.innerHTML +=
-    totalInCent += 150;
-    updateTotal();
+    total += 150;
+    UpdateDisplayTotal();
 }
 const addPlush = () =>{
     shoppingCart.innerHTML +=
-    totalInCent += 400;
-    updateTotal();
+    total += 400;
+    UpdateDisplayTotal();
 }
+const addComic = () => {
+    shoppingCart.innerHTML +=
+    total += 275;
+    UpdateDisplayTotal();
+}
+const addMystery = () => {
+    shoppingCart.innerHTML +=
+    total += 325;
+    UpdateDisplayTotal();
+}
+
+stickerButton.addEventListener("click", addSticker);
+keychainButton.addEventListener("click", addKeychain);
+miniplushButton.addEventListener("click", addPlush);
+comicbookButton.addEventListener("click", addComic);
+mysteryboxButton.addEventListener("click", addMystery);
