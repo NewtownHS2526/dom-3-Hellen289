@@ -1,55 +1,62 @@
-let cart= [];
-let total = 0;
+console.log("script running");
 
-const products = [
-    {id: 1, name: 'sticker', price: 0.50},
-    {id: 2, name: 'keychain', price: 1.50},
-    {id: 3, name: 'plush', price: 4.00},
-    {id: 2, name: 'comic', price: 2.75},
-    {id: 2, name: 'mystery', price: 3.25},
-]
+let totalInCents = 0;
 
+// 5 buttons
 const stickerButton = document.querySelector("#sticker");
 const keychainButton = document.querySelector("#keychain");
-const miniplushButton = document.querySelector("#plush");
-const comicbookButton = document.querySelector("#comic");
-const mysteryboxButton = document.querySelector("#mystery");
+const plushButton = document.querySelector("#plush");
+const comicButton = document.querySelector("#comic");
+const mysteryButton = document.querySelector("#mystery");
 
-const shoppingCart = document.getElementById('shopping-cart');
-const totalSpan = document.getElementById('total-span');
+const shoppingCart = document.querySelector("#shopping-cart");
+const totalSpan = document.querySelector("#total-span");
 
-const UpdateTotal = () => {
-    totalSpan.textContent = total/100;
-    shoppingCart.textContent = stickerButton;
-}
+console.log(
+  stickerButton,
+  keychainButton,
+  plushButton,
+  comicButton,
+  mysteryButton,
+  shoppingCart,
+  totalSpan
+);
+
+const updateTotal = () => {
+  totalSpan.innerHTML = (totalInCents / 100).toFixed(2);
+};
+
 const addSticker = () => {
-    shoppingCart.innerHTML +=
-    total += 50;
-    UpdateTotal();
-}
-const addKeychain = () => {
-    shoppingCart.innerHTML +=
-    total += 150;
-    UpdateTotal();
-}
-const addPlush = () =>{
-    shoppingCart.innerHTML +=
-    total += 400;
-    UpdateTotal();
-}
-const addComic = () => {
-    shoppingCart.innerHTML +=
-    total += 275;
-    UpdateTotal();
-}
-const addMystery = () => {
-    shoppingCart.innerHTML +=
-    total += 325;
-    UpdateTotal();
-}
-
+  shoppingCart.innerHTML += `<p>⭐ Sticker Pack</p>`;
+  totalInCents += 50;
+  updateTotal();
+};
 stickerButton.addEventListener("click", addSticker);
+
+const addKeychain = () => {
+  shoppingCart.innerHTML += `<p>🔑 Keychain</p>`;
+  totalInCents += 150;
+  updateTotal();
+};
 keychainButton.addEventListener("click", addKeychain);
-miniplushButton.addEventListener("click", addPlush);
-comicbookButton.addEventListener("click", addComic);
-mysteryboxButton.addEventListener("click", addMystery);
+
+const addPlush = () => {
+  shoppingCart.innerHTML += `<p>🧸 Mini Plush</p>`;
+  totalInCents += 400;
+  updateTotal();
+};
+plushButton.addEventListener("click", addPlush);
+
+const addComic = () => {
+  shoppingCart.innerHTML += `<p>📚 Comic Book</p>`;
+  totalInCents += 275;
+  updateTotal();
+};
+comicButton.addEventListener("click", addComic);
+
+const addMystery = () => {
+  shoppingCart.innerHTML += `<p>🎁 Mystery Box</p>`;
+  totalInCents += 325;
+  updateTotal();
+};
+mysteryButton.addEventListener("click", addMystery);
